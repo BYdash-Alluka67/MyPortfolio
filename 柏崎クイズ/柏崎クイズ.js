@@ -1,26 +1,28 @@
-//準備フェーズ
+//クイズの用意
 const quiz = [
     {
-        question: "最も売れたゲーム機は次のうちどれ？",
-        answers: ["スーパーファミコン","ニンテンドーDS","ニンテンドーswitch","ファミコン"],
-        correct: "ニンテンドーDS"
+        question: "柏崎市のおおよその人口は次のうちどれ？",
+        answers: ["60000人","70000人","80000人","90000人"],
+        correct: "80000人"
     },
     {
-        question: "糸井重里が企画に関わったゲームは次のうちどれ？",
-        answers: ["MOTHER2","スーパーマリオブラザーズ","ドンキーコング","星のカービィ"],
-        correct: "MOTHER2"
+        question: "柏崎市の木は次のうちどれ？",
+        answers: ["松","竹","柏","梅"],
+        correct: "松"
     },
     {
-        question: "FFIVの主人公は次のうちどれ？",
-        answers: ["フリオニール","ティーダ","セシル","クラウド"],
-        correct: "セシル"
+        question: "柏崎市のおおよその面積は次のうちどれ？",
+        answers: ["320㎢","440㎢","500㎢","640㎢"],
+        correct: "440㎢"
     }
 ];
 
+//必要な変数と定数の定義
 const $button = document.getElementsByTagName("button");
 let quiz_index = 0;
 let score = 0;
 
+//クイズをセットアップする関数の定義
 function setup_quiz() {
 
     document.getElementById("question").textContent = quiz[quiz_index].question;
@@ -32,6 +34,7 @@ function setup_quiz() {
 
 }
 
+//ボタンをクリックした時のイベントを起こす関数の定義
 function click_hundler(e) {
 
     if (quiz[quiz_index].correct === e.target.textContent) {
@@ -59,15 +62,10 @@ function click_hundler(e) {
 
 }
 
-//実行フェーズ
+//実行
 setup_quiz();
-
 for (let j = 0; j < $button.length; j++) {
 
-    $button[j].addEventListener("click", (e) => {
-
-        click_hundler(e);
-
-    });
+    $button[j].addEventListener("click", (e) => {click_hundler(e);});
 
 }
