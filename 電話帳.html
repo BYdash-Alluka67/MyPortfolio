@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="ja">
+        <title>電話帳</title>
+        <script>
+            function add_item() {
+
+                let name = document.getElementById("name");
+                let number = document.getElementById("number");
+
+                let add_element = document.createElement("li");
+
+                let add_name = document.createTextNode(name.value);
+                add_element.appendChild(add_name);
+
+                let add_number = document.createTextNode(number.value);
+                add_element.appendChild(add_number);
+
+                target.appendChild(add_element);
+            }
+        </script>
+    </head>
+    <body>
+        <p>追加したい名前と電話番号を入力してください。</p>
+        <p>
+            <input type="text" value="名前を入力" id="name">
+            <input type="text" value="電話番号を入力" id="number">
+            <input type="button" value="入力" onclick="add_item()">
+        </p>
+        <ul id="target" style="visibility: visible;">
+        </ul>
+    </body>
+</html>
